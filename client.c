@@ -20,8 +20,7 @@ int main (int argc, char *argv [])
 
     //  Subscribe to zipcode, default is NYC, 10001
     char *filter = (argc > 1)? argv [1]: "10001 ";
-    rc = zmq_setsockopt (subscriber, ZMQ_SUBSCRIBE,
-                         filter, strlen (filter));
+    rc = zmq_setsockopt (subscriber, ZMQ_SUBSCRIBE, filter, strlen (filter));
     assert (rc == 0);
 
     //  Process 100 updates
@@ -29,7 +28,6 @@ int main (int argc, char *argv [])
     long total_temp = 0;
     for (update_nbr = 0; update_nbr < 100; update_nbr++) {
         char *string = s_recv (subscriber);
-printf( "%s\n", string );
         int zipcode, temperature, relhumidity;
         sscanf (string, "%d %d %d",
             &zipcode, &temperature, &relhumidity);
