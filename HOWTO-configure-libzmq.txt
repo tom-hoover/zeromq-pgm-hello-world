@@ -1,0 +1,2 @@
+// configure libzmq
+./configure --with-pgm --with-norm=/usr/local/src/norm-1.5r6

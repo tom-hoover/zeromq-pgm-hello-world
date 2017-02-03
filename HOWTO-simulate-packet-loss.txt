@@ -1,0 +1,8 @@
+// add loss
+tc qdisc add dev enp0s3 root netem loss 0.1%
+
+// change loss
+tc qdisc change dev enp0s3 root netem loss 0.1%
+
+// remove settings
+tc qdisc del dev enp0s3 root 
